@@ -22,11 +22,24 @@ const useStorage = ()=>{
 
             await AsyncStorage.setItem(key, JSON.stringify(passwords))
         } catch (error) {
-            console.log("Erro ao Guardar");
+            console.log("Erro ao Guardar", error);
         }
     }
 
-    //
+    //Remover item do storag
+    const removeItem = async(key, item)=>{
+        try {
+            let passwords = await getItem(key);
+
+            let myPasswords = passwords.filter((passwords)=>{
+                return (passwords !=item)
+            })
+            await AsyncStorage.setItem(key, JSON.stringify(myPasswords))
+            return myPasswords;
+        } catch (error) {
+            console.log("Erro ao remover", error);
+        }
+    }
 
 
 }
