@@ -41,6 +41,12 @@ const useStorage = ()=>{
         }
     }
 
+    return{
+        getItem,
+        saveItem,
+        removeItem,
+    }
+
 
 }
 
